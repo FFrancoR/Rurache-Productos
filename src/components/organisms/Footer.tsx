@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import NavLink from '@/components/molecules/NavLink';
 import SocialButton from '@/components/molecules/SocialButton';
 import { INSTAGRAM_URL, WHATSAPP_FULL_URL } from '@/lib/constants';
-import { Fa0, FaInstagram } from 'react-icons/fa6';
+import { FaInstagram } from 'react-icons/fa6';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
@@ -60,8 +62,26 @@ export default function Footer() {
               Encontranos en
             </h3>
             <div className="flex gap-3 mb-6">
-              <FaWhatsapp className="w-5 h-5 relative z-10 shrink-0" />
-              <FaInstagram className="w-5 h-5 relative z-10 shrink-0" />
+              <a
+                href={WHATSAPP_FULL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-[var(--color-nude)] hover:text-white hover:bg-[var(--color-whatsapp)] hover:border-[var(--color-whatsapp)] transition-all duration-300"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-[var(--color-nude)] hover:text-white hover:border-transparent transition-all duration-300"
+                onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)')}
+                onMouseLeave={e => (e.currentTarget.style.background = '')}
+              >
+                <FaInstagram className="w-5 h-5" />
+              </a>
             </div>
             <p className="font-body text-nude text-sm leading-relaxed text-center md:text-left opacity-70 max-w-50">
               Escribinos por consultas o pedidos. ¡Te respondemos rápido!
